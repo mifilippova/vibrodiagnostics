@@ -1,12 +1,10 @@
-import numpy as np
-from PyQt5 import QtGui, QtCore
-from PyQt5.QtGui import *
-from PyQt5.QtWidgets import *
-from PyQt5.QtCore import *
+from PyQt6.QtGui import *
+from PyQt6.QtWidgets import *
+from PyQt6.QtCore import *
 import sys
 
-import alg_video
-import video
+import high_speed.alg_video
+from app import video
 
 
 class Contours(QWidget):
@@ -78,8 +76,8 @@ class Contours(QWidget):
             self.localVideo.play_videoFile()
 
     def alg(self):
-        if self.fileName != '':
-            alg_video.Algorithm(self, self.localVideo.t)
+        if self.fileName != '' :
+            Algorithm(self, self.localVideo.t)
             self.canny.setPixmap(QPixmap('pic/canny.jpg').scaledToWidth(630))
             self.filledContours.setPixmap(QPixmap('pic/filled_contours.jpg').scaledToWidth(630))
             self.colorbar.setPixmap(QPixmap('pic/colorbar.jpg').scaledToWidth(630))

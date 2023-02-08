@@ -1,13 +1,11 @@
-import numpy as np
-from PyQt5 import QtGui, QtCore
-from PyQt5.QtGui import *
-from PyQt5.QtWidgets import *
-from PyQt5.QtCore import *
+from PyQt6 import QtGui
+from PyQt6.QtGui import *
+from PyQt6.QtWidgets import *
+from PyQt6.QtCore import *
 import sys
 
-import alg_area
-import alg_video
-import video
+import high_speed.alg_area
+from app import video
 
 
 class Area(QWidget):

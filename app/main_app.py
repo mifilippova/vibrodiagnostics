@@ -1,8 +1,6 @@
-import numpy as np
-from PyQt5 import QtGui, QtCore
-from PyQt5.QtGui import *
-from PyQt5.QtWidgets import *
-from PyQt5.QtCore import *
+from PyQt6.QtGui import *
+from PyQt6.QtWidgets import *
+from PyQt6.QtCore import *
 import sys
 
 import app_area
@@ -60,4 +58,4 @@ if __name__ == "__main__":
     mode = Mode()
     mode.resize(640, 250)
     mode.show()
-    sys.exit(app.exec_())
+    sys.exit(app.exec())
