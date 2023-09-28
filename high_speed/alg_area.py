@@ -10,9 +10,9 @@ class Algorithm:
     def __init__(self, video_player, t):
         self.t = t.copy()
         self.video_player = video_player
-        template = self.get_template(t)
-        self.video_player.setRectangle()
-        self.start(t, template, 'magnified_video')
+        self.template = self.get_template(t)
+        # self.video_player.setRectangle()
+        self.start(t, self.template, 'magnified_video')
 
     def template_mathing(self, temp, pic2):
         # to gray image
@@ -38,12 +38,12 @@ class Algorithm:
     # строим график колебаний точки
     def start(self, t, temp, name):
         centers = []
-        self.video_player.setProgressMax(len(t) - 2 - 1)
+        # self.video_player.setProgressMax(len(t) - 2 - 1)
         # проходим по всем кадрам
         for i in range(len(t) - 2):
 
             # обновляем прогресс
-            self.video_player.setProgressValue(i)
+            # self.video_player.setProgressValue(i)
 
 
             # находим расположение нашей области
@@ -66,7 +66,7 @@ class Algorithm:
         plt.ylabel('Distance in pixels')
         plt.savefig('pic/' + name + '.jpg')
 
-        self.video_player.setMaxMean(f'max = {np.max(centers_differences)}, mean = {np.mean(centers_differences)}')
+#        self.video_player.setMaxMean(f'max = {np.max(centers_differences)}, mean = {np.mean(centers_differences)}')
 
 
     # функция для того, чтобы определить область, которую будем отслеживать
@@ -110,3 +110,4 @@ class Template:
         cv2.destroyAllWindows()
         cv2.imwrite('pic/rectangle.jpg', self.image.copy())
         return self.top_left_corner, self.bottom_right_corner
+

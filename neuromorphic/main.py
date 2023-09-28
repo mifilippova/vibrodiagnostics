@@ -1,11 +1,11 @@
-from efpctm.event_filter import EF
+from event_filter import EF
 from video import load_video
 import logging
 
 if __name__ == "__main__":
     logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.DEBUG)
 
-    video_name = "C:/Users/filip/PycharmProjects/vibrodiagnostics/ef-video/dvs-video.avi"
+    video_name = "C:/Users/filip/vibrodiagnostics/videos/neuromorphic-video/dvs-video.avi"
 
     frames, fps, width, height = load_video(video_name)
 

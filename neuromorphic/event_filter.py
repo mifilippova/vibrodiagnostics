@@ -3,7 +3,8 @@ from scipy.fft import fft2, ifft2
 import numpy as np
 import logging as log
 
-
+# Unsuccessful attempt.
+# Reference: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4264344
 class EF:
     def __init__(self, frames, k=3):
         '''
@@ -15,6 +16,18 @@ class EF:
         self.k = k
         self.a = np.ones(k)
         self.b = np.ones(k)
+        self.ga = pygad.GA(num_genertions = 100,
+                           num_parents_mating=4,
+                           fitness_func=self.cost_function,
+                           sol_per_pop=8,
+                           num_genes=len(frames),
+                           init_range_low=-2,
+                           init_range_high=5,
+                           parent_selection_type="sss",
+                           keep_parents=1,
+                           crossover_type="single_point",
+                           mutation_type="random",
+                           mutation_percent_genes=10)
 
     def generate_ef_frames(self):
         log.info("Start generating EF-frames")
